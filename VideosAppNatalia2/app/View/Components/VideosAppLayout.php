@@ -21,6 +21,6 @@ class VideosAppLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('layouts.videos-app');
+        return view('layouts.VideosAppLayout');
     }
 }

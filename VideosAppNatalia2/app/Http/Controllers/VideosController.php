@@ -17,10 +17,8 @@ class VideosController extends Controller
      */
     public function show(int $id): View
     {
-        // Obtén el video o lanza una excepción si no se encuentra
         $video = Video::query()->findOrFail($id); 
         
-        // Devuelve la vista y pasa el objeto $video
         return view('videos.show', compact('video')); 
     }
 

@@ -15,7 +15,7 @@ class VideosTest extends TestCase
     {
         parent::setUp();
         
-        Carbon::setLocale('es'); // Establecer la localización a español
+        Carbon::setLocale('es'); 
     }
 
     public function test_can_get_formatted_published_at_date()
@@ -24,7 +24,7 @@ class VideosTest extends TestCase
             'published_at' => Carbon::create(2023, 1, 1, 12, 0, 0),
         ]);
         
-        $this->assertEquals('01 de January de 2023', $video->formatted_published_at); // Comparar el formato correcto
+        $this->assertEquals('01 de January de 2023', $video->formatted_published_at); 
     }
 
     public function test_can_get_formatted_published_at_date_when_not_published()
@@ -33,7 +33,7 @@ class VideosTest extends TestCase
             'published_at' => null,
         ]);
         
-        $this->assertNull($video->formatted_published_at); // Verificar que si no tiene fecha, sea null
+        $this->assertNull($video->formatted_published_at); 
     }
 
     public function test_can_get_formatted_for_humans_published_at_date()
@@ -42,7 +42,7 @@ class VideosTest extends TestCase
             'published_at' => Carbon::now()->subDays(5),
         ]);
 
-        $this->assertStringContainsString('hace', $video->formatted_for_humans_published_at); // Comprobar si el formato contiene "hace"
+        $this->assertStringContainsString('hace', $video->formatted_for_humans_published_at); 
     }
 
     public function test_can_get_published_at_timestamp()
@@ -51,6 +51,6 @@ class VideosTest extends TestCase
             'published_at' => Carbon::create(2023, 1, 1, 12, 0, 0, 'UTC'),
         ]);
 
-        $this->assertEquals(1672574400, $video->published_at_timestamp); // Comparar el timestamp
+        $this->assertEquals(1672574400, $video->published_at_timestamp); 
     }
 }

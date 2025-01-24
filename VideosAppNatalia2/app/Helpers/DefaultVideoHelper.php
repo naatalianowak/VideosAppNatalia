@@ -7,7 +7,7 @@ use App\Models\Video;
 class DefaultVideoHelper
 {
     /**
-     * Crea videos por defecto.
+     * Crea videos per defecte.
      *
      * @return void
      */
