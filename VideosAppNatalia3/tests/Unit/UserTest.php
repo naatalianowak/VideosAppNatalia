@@ -22,7 +22,7 @@ class UserTest extends TestCase
     public function test_is_super_admin()
     {
 
-        $user = User::factory()->create(['super_admin' => true]);
+        $user = User::factory()->create(['is_superadmin' => true]);
         $user->assignRole('Super Admin');
 
         $this->assertTrue($user->isSuperAdmin());

@@ -62,9 +62,9 @@ class VideosManageControllerTest extends TestCase
 
     public function test_regular_users_cannot_manage_videos()
     {
-        $this->loginAsRegularUser(); // Ya inicia sesión con un usuario regular
+        $this->loginAsRegularUser();
 
-        $video = Video::factory()->create(); // Crea un video
+        $video = Video::factory()->create();
 
         $response = $this->get('/videos/' . $video->id . '/edit');
 
@@ -82,7 +82,7 @@ class VideosManageControllerTest extends TestCase
         $response->assertRedirect('/login');
     }
 
-    protected function logout()
+    protected function logout(): void
     {
         auth()->logout();
     }

@@ -17,14 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Create permissions
         Permission::create(['name' => 'view videos']);
         Permission::create(['name' => 'create videos']);
         Permission::create(['name' => 'manage videos']);
 
-
-
-        // Create roles and assign permissions
         $superAdminRole = Role::create(['name' => 'Super Admin']);
         $superAdminRole->givePermissionTo(Permission::all());
 
@@ -34,7 +30,7 @@ class DatabaseSeeder extends Seeder
         $regularUserRole = Role::create(['name' => 'Regular User']);
         $regularUserRole->givePermissionTo(['view videos']);
 
-        // Create users and assign roles
+
         $superAdmin = User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@videosapp.com',

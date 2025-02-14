@@ -25,12 +25,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        // Register policies
-        Gate::policy(Video::class, VideoPolicy::class);
+        $this->registerPolicies();
 
-        // Define gates
         Gate::define('manage-videos', function ($user) {
             return $user->isSuperAdmin();
         });
@@ -40,11 +38,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::component('layouts.app', 'layouts.app');
-
-        $this -> registerPolicies();
     }
+
     protected $policies = [
         Video::class => VideoPolicy::class,
     ];
-
 }

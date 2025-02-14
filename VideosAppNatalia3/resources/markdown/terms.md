@@ -50,6 +50,54 @@ Al segon sprint, es van implementar funcionalitats més avançades relacionades 
 6. **Implementació d'Eines d'Anàlisi de Codi**:
    - Es va instal·lar i configurar **Larastan** per detectar errors en el codi i millorar la qualitat del mateix.
 
+## Sprint 3
+1. **Corregir errors del 2n sprint:**
+    - Vaig començar corregint els errors del segon sprint que havien aparegut durant les proves inicials.
+
+2. **Instal·lació del paquet `spatie/laravel-permission`:**
+    - Vaig instal·lar aquest paquet per gestionar els permisos i rols dels usuaris a l'aplicació. Seguint les instruccions de la [documentació d'instal·lació](https://spatie.be/docs/laravel-permission/v6/installation-laravel), vaig afegir-lo correctament al projecte.
+
+3. **Migració per afegir el camp `super_admin` a la taula `users`:**
+    - Vaig crear una migració per afegir el camp `super_admin` a la taula d'usuaris, per poder identificar quins usuaris tenen el rol de superadministrador.
+
+4. **Actualització del Model `User`:**
+    - Al model d'usuaris, vaig afegir les funcions `testedBy()` i `isSuperAdmin()` per facilitar la verificació de permisos i rols.
+
+5. **Afegir el superadmin al professor a la funció `create_default_professor`:**
+    - Vaig actualitzar aquesta funció a `helpers` per afegir el superadmin al professor per defecte i separar la creació de l'equip del codi de creació dels usuaris mitjançant la nova funció `add_personal_team()`.
+
+6. **Creació de funcions per a usuaris regulars i de gestió de vídeos:**
+    - Vaig crear diverses funcions per crear usuaris regulars, gestors de vídeos i superadministradors. Això inclou funcions com `create_regular_user()`, `create_video_manager_user()`, i `create_superadmin_user()` amb valors predeterminats per cada tipus d'usuari.
+
+7. **Definir polítiques i portes d'accés a `AppServiceProvider`:**
+    - A la funció `book` de `AppServiceProvider`, vaig registrar les polítiques d'autorització i definir les portes d'accés per controlar qui pot veure o modificar què a l'aplicació.
+
+8. **Posar permisos i usuaris per defecte al `DatabaseSeeder`:**
+    - Vaig afegir els permisos i usuaris (superadmin, regular user i video manager) al `DatabaseSeeder`, per garantir que aquests usuaris estiguin disponibles a la base de dades inicialment.
+
+9. **Publicar els stubs per personalitzar-los:**
+    - Vaig seguir la guia per [personalitzar els stubs](https://laravel-news.com/customizing-stubs-in-laravel) per adaptar el codi generat per Laravel a les necessitats del projecte.
+
+10. **Crear el test 'VideoManagerTest' per provar les funcions del gestor de vídeos:**
+    - Vaig crear un nou test per provar les funcions del gestor de vídeos, com ara la creació, edició i eliminació de vídeos. Aquest test va ser útil per verificar que les funcions del gestor de vídeos funcionaven correctament.
+
+11. **Crear el test `UserTest`:**
+    - A la carpeta `tests/Unit`, vaig crear el test `UserTest` i vaig afegir la funció `isSuperAdmin()` per verificar que es detectés correctament si un usuari és superadministrador.
+
+12. **Afegir un registre a `resources/markdown/terms`:**
+    - Vaig actualitzar el fitxer de termes per incloure tot el que s'ha fet fins al moment en aquest sprint, per mantenir la documentació al dia.
+
+13. **Comprovar els fitxers amb Larastan:**
+    - Vaig utilitzar **Larastan** per analitzar tot el codi creat i detectar possibles errors de tipus i altres problemes en el codi.
+
+
 ## Conclusió
 
-Aquest projecte és una excel·lent pràctica per treballar amb Laravel i desenvolupar una aplicació web amb funcionalitats completes. Al llarg dels dos sprints, s'ha creat una estructura sòlida per gestionar vídeos, amb un enfocament en proves, estructura de dades i usabilitat.
+Durant aquests sprints, vaig aconseguir configurar l'estructura bàsica del projecte, implementar una gestió robusta de permisos, i escriure proves per garantir el bon funcionament del sistema. Això ha permès millorar la seguretat i funcionalitat del projecte, amb un enfocament en la gestió d'usuaris i la gestió de vídeos dins de l'aplicació.
+
+
+
+
+
+
+

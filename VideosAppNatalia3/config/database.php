@@ -34,7 +34,7 @@ return [
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => '/home/alumne/Documents/2nDAM/GROBAL MP7-MP8-MP9/VideosApp2OriginalSenseCanvis/VideosAppNatalia-main/VideosAppNatalia2/database/database.sqlite',
+            'database' => '/home/alumne/Documents/2nDAM/GROBAL MP7-MP8-MP9/Repositori/VideosAppNatalia/VideosAppNatalia3/database/database.sqlite',
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,

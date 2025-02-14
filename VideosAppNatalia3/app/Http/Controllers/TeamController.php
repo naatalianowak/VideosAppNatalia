@@ -12,12 +12,12 @@ class TeamController extends Controller
 {
     use AuthorizesRequests;
 
+
     /**
      * @throws AuthorizationException
      */
     public function updateRole(Request $request, Team $team, User $user): \Illuminate\Http\Response
     {
-        /** @var string $request->role */
         $this->authorize('update', $team);
 
         $team->users()->updateExistingPivot($user->id, ['role' => $request->role]);

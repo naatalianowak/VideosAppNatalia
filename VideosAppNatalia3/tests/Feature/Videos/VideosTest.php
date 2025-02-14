@@ -21,13 +21,10 @@ class VideosTest extends TestCase
 
         $response = $this->get(route('videos.show', $video));
 
-        // Verificar que la respuesta sea correcta (HTTP 200)
         $response->assertStatus(200);
 
-        // Verificar que la vista esperada se muestre
         $response->assertViewIs('videos.show');
 
-        // Verificar que la vista tiene el video correcto
         $response->assertViewHas('video', $video);
     }
 
@@ -43,7 +40,6 @@ class VideosTest extends TestCase
 
         $response = $this->get(route('videos.show', ['video' => $nonExistentVideoId]));
 
-        // Verificar que se retorna un error 404
         $response->assertStatus(404);
     }
 }

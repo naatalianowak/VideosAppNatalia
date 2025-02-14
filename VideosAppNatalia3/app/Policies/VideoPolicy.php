@@ -37,10 +37,10 @@ class VideoPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Video $video)
+    public function update(User $user, Video $video): bool
     {
         // Allow superadmins or users with specific permissions to update the video
-        return $user->is_superadmin || $user->hasPermissionTo('update videos') || $user->id === $video->user_id;
+        return $user->isSuperAdmin() || $user->hasPermissionTo('update videos');
     }
 
     /**
